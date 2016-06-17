@@ -14,6 +14,10 @@
 		322C09A01D11286E0035D9C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322C099E1D11286E0035D9C1 /* LaunchScreen.storyboard */; };
 		322C09AB1D11286E0035D9C1 /* QiitaViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C09AA1D11286E0035D9C1 /* QiitaViewerTests.swift */; };
 		322C09B61D11286E0035D9C1 /* QiitaViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C09B51D11286E0035D9C1 /* QiitaViewerUITests.swift */; };
+		322C09C41D112D370035D9C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322C09C31D112D370035D9C1 /* Alamofire.framework */; };
+		322C09C61D112D450035D9C1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322C09C51D112D450035D9C1 /* SwiftyJSON.framework */; };
+		322C09DB1D129CA50035D9C1 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C09DA1D129CA50035D9C1 /* Article.swift */; };
+		322C09DD1D129E8D0035D9C1 /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C09DC1D129E8D0035D9C1 /* ArticleManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		322C09B11D11286E0035D9C1 /* QiitaViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiitaViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		322C09B51D11286E0035D9C1 /* QiitaViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaViewerUITests.swift; sourceTree = "<group>"; };
 		322C09B71D11286E0035D9C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		322C09C31D112D370035D9C1 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		322C09C51D112D450035D9C1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		322C09DA1D129CA50035D9C1 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		322C09DC1D129E8D0035D9C1 /* ArticleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				322C09C61D112D450035D9C1 /* SwiftyJSON.framework in Frameworks */,
+				322C09C41D112D370035D9C1 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +87,8 @@
 		322C09891D11286E0035D9C1 = {
 			isa = PBXGroup;
 			children = (
+				322C09C51D112D450035D9C1 /* SwiftyJSON.framework */,
+				322C09C31D112D370035D9C1 /* Alamofire.framework */,
 				322C09941D11286E0035D9C1 /* QiitaViewer */,
 				322C09A91D11286E0035D9C1 /* QiitaViewerTests */,
 				322C09B41D11286E0035D9C1 /* QiitaViewerUITests */,
@@ -98,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				322C09951D11286E0035D9C1 /* AppDelegate.swift */,
+				322C09DC1D129E8D0035D9C1 /* ArticleManager.swift */,
+				322C09DA1D129CA50035D9C1 /* Article.swift */,
 				322C09971D11286E0035D9C1 /* ViewController.swift */,
 				322C09991D11286E0035D9C1 /* Main.storyboard */,
 				322C099C1D11286E0035D9C1 /* Assets.xcassets */,
@@ -135,6 +149,7 @@
 				322C098E1D11286E0035D9C1 /* Sources */,
 				322C098F1D11286E0035D9C1 /* Frameworks */,
 				322C09901D11286E0035D9C1 /* Resources */,
+				322C09C71D112D500035D9C1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -251,6 +266,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		322C09C71D112D500035D9C1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		322C098E1D11286E0035D9C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -258,6 +291,8 @@
 			files = (
 				322C09981D11286E0035D9C1 /* ViewController.swift in Sources */,
 				322C09961D11286E0035D9C1 /* AppDelegate.swift in Sources */,
+				322C09DD1D129E8D0035D9C1 /* ArticleManager.swift in Sources */,
+				322C09DB1D129CA50035D9C1 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +434,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = QiitaViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yamanakafumiya.QiitaViewer;
@@ -410,6 +450,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = QiitaViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yamanakafumiya.QiitaViewer;
@@ -482,6 +527,7 @@
 				322C09BC1D11286E0035D9C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		322C09BD1D11286E0035D9C1 /* Build configuration list for PBXNativeTarget "QiitaViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +536,7 @@
 				322C09BF1D11286E0035D9C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		322C09C01D11286E0035D9C1 /* Build configuration list for PBXNativeTarget "QiitaViewerUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +545,7 @@
 				322C09C21D11286E0035D9C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
