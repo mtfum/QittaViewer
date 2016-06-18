@@ -14,8 +14,8 @@ import SwiftyJSON
 class ArticleManager {
     static let sharedInstance = ArticleManager() // シングルトン実装
 
-//    func getArticles(callBackClosure: ([Article]) -> Void) -> Void {
-    func getArticles() -> [Article] {
+    func getArticles(callBackClosure: ([Article]) -> ()) {
+//    func getArticles() -> [Article] {
         let urlString: String = "https://qiita.com/api/v2/items"
         var articles = [Article]() // 記事を入れるプロパティを定義, 辞書型の配列
 
@@ -23,14 +23,17 @@ class ArticleManager {
             guard let object = response.result.value else { return }
             let json = JSON(object)
             json.forEach { (_, json) in
-                let article = Article(title: json["title"].string!, userId: json["user"]["id"].string!, url: json["url"].string!)
+//                nilチェック！
+                guard let title = json["title"].string,
+                    let userId = json["user"]["id"].string,
+                    let url = json["url"].string else { return }
+                
+                let article = Article(title: title, userId: userId, url: url)
                 articles.append(article) // 配列に入れる
-                print(article.title)
             }
-            
+            callBackClosure(articles)
         }
-//        callBackClosure(articles)
-        return articles
+//        return articles
     }
     
 }

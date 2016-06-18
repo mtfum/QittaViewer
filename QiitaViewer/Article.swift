@@ -11,9 +11,9 @@ import Foundation
 //　ViewControllerが使いたい値の設定, データを格納する箱
 class Article {
     
-    var title: String
-    var userId: String
-    var url: String
+    var title: String?
+    var userId: String?
+    var url: String?
     
     init(title: String, userId: String, url: String) { // それぞれで型指定しているversion
         self.title = title
